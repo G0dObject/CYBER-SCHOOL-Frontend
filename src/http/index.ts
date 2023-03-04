@@ -6,6 +6,7 @@ let $api = axios.create({baseURL:baseUrl, headers: {
 },
 })
 $api.defaults.baseURL = baseUrl;
+console.log(process.env.REACT_APP_BASE_API_URL);
 
 $api.interceptors.request.use((config) => {
 	config.headers.Authorization = `Bearer ${localStorage.getItem("token")}`;

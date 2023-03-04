@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './App.css';
 import { IUser } from './Core/Enum/Interface/Auth/IUser';
+import $api from './http';
+
 import Store from './store/index';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
@@ -15,6 +17,7 @@ let user: IUser = {
 
 store.setUser(user);
 export const Context = createContext(store);
+$api.get('/Login', {}).then((res) => console.log(res));
 
 root.render(
 	<Context.Provider value={store}>
