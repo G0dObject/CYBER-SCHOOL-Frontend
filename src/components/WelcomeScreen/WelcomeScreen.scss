@@ -1,0 +1,47 @@
+@import '../../scss/variables';
+@import '../../scss/rv';
+.welcome {
+	background: linear-gradient(100.73deg, #E6F6EA 11%, rgba(83, 236, 121, 0.3) 126.07%);
+	overflow: hidden;
+	height: 505px;
+	@include rv('height', 505, 380, 1180, 320);
+	&__container {
+		height: inherit;
+		display: flex;
+		position: relative;
+	}
+	&__content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		max-width: 520px;
+		position: relative;
+		z-index: 2;
+		@include rv('margin-bottom', 0, 150, 1180, 320);
+	}
+	&__title {
+		font-weight: 800;
+		font-size: 46px;
+		line-height: calc(60/46);
+		color: $dark;
+		margin-bottom: 30px;
+		@include rv('font-size', 46, 25, 1180, 320);
+		@include rv('margin-bottom', 30, 20, 1180, 320);
+	}
+	.button {
+		padding: 0 23px;
+		height: 50px;
+		font-size: 20px;
+		@include rv('font-size', 20, 18, 1180, 320);
+		@include rv('height', 50, 44, 1180, 320);
+	}
+	&__illustration {
+		position: absolute;
+		width: 835px;
+		@include rv('width', 835, 330, 1180, 320);
+		bottom: -30px;
+		right: -185px;
+		@include rv('right', -185, -20, 1180, 320);
+	}
+}

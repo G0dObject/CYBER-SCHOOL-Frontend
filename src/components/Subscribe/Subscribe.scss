@@ -1,0 +1,56 @@
+@import '../../scss/variables';
+@import '../../scss/rv';
+.subscribe {
+	height: 450px;
+	overflow: hidden;
+	@media (max-width: 768px) {
+		height: 300px;
+	}
+	&__container {
+		display: flex;
+		height: inherit;
+		position: relative;
+		@media (max-width: 768px) {
+			justify-content: center;
+		}
+	}
+	&__content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		position: relative;
+		z-index: 4;
+		@include rv('margin-bottom', 0, 150, 1180, 768);
+		@media (max-width: 768px) {
+			margin-bottom: 0;
+			align-items: center;
+		}
+	}
+	&__title {
+		font-size: 46px;
+		font-weight: 800;
+		color: $dark;
+		margin-bottom: 45px;
+		@include rv('font-size', 46, 22, 1180, 320);
+		@include rv('margin-bottom', 45, 20, 1180, 320);
+	}
+	&__illustration {
+		position: absolute;
+		bottom: -65px;
+		right: -400px;
+		width: 742px;
+		@include rv('width', 742, 450, 1180, 320);
+		@include rv('right', -400, -50, 1920, 992);
+		@media (max-width: 768px) {
+			display: none;
+		}
+	}
+	.button {
+		font-size: 20px;
+		height: 50px;
+		padding: 0 23px;
+		@include rv('font-size', 20, 16, 1180, 320);
+		@include rv('height', 50, 44, 1180, 320);
+	}
+}

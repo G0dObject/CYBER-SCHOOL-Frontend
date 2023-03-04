@@ -1,0 +1,118 @@
+@import '../../scss/variables';
+@import '../../scss/rv';
+.join {
+	background: linear-gradient(271.55deg, #DCFEE5 16.59%, rgba(163, 242, 182, 0.2) 103.82%);
+	padding: 55px 0 95px;
+	overflow: hidden;
+	@media (max-width: 992px) {
+		padding: 55px 0 0 0;
+	}
+	&__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: relative;
+	}
+	&__content {
+		width: 100%;
+		display: flex;
+		justify-content: flex-end;
+		@media (max-width: 992px) {
+			flex-direction: column-reverse;
+			align-items: center;
+		}
+	}
+	&__title {
+		font-weight: 700;
+		font-size: 36px;
+		color: $dark;
+		margin-bottom: 75px;
+		@include rv('font-size', 36, 24, 1180, 320);
+		@include rv('margin-bottom', 75, 30, 1180, 320);
+	}
+	&__illustration {
+		position: absolute;
+		width: 550px;
+		bottom: -100px;
+		left: -210px;
+		@include rv('width', 500, 280, 1180, 320);
+		@include rv('left', -210, -20, 1180, 320);
+		@media (max-width: 992px) {
+			position: static;
+			margin-bottom: -10px;
+			margin-top: 50px;
+		}
+	}
+	&__steps {
+		display: flex;
+		flex-direction: column;
+		gap: 50px;
+		@media (max-width: 768px) {
+			@include rv('gap', 50, 25, 768, 320);
+		}
+	}
+	&-step {
+		display: flex;
+		align-items: center;
+		gap: 40px;
+		max-width: 640px;
+		@media (max-width: 768px) {
+			@include rv('gap', 40, 15, 768, 320);
+		}
+		&:last-of-type {
+			.join-step__icon::before {
+				display: none;
+			}
+		}
+		&__icon {
+			flex: 0 0 70px;
+			height: 70px;
+			border-radius: 50%;
+			border: 2px solid $dark;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-weight: 600;
+			font-size: 26px;
+			color: $primary;
+			position: relative;
+			@media (max-width: 768px) {
+				@include rv('flex-basis', 70, 50, 768, 320);
+				@include rv('height', 70, 50, 768, 320);
+				@include rv('font-size', 26, 22, 768, 320);
+			}
+			&::before {
+				content: '';
+				width: 2px;
+				height: 40px;
+				position: absolute;
+				background-color: $dark;
+				top: calc(100% + 7px);
+				@media (max-width: 768px) {
+					display: none;
+				}
+			}
+		}
+		&__content {}
+		&__title {
+			color: $dark;
+			font-size: 20px;
+			font-weight: 600;
+			margin-bottom: 10px;
+			line-height: calc(25/20);
+			@media (max-width: 768px) {
+				@include rv('font-size', 20, 16, 768, 320);
+				@include rv('margin-bottom', 10, 5, 768, 320);
+			}
+		}
+		&__description {
+			font-weight: 500;
+			font-size: 16px;
+			line-height: calc(22/16);
+			color: $plain_text;
+			@media (max-width: 768px) {
+				@include rv('font-size', 16, 13, 768, 320);
+			}
+		}
+	}
+}
