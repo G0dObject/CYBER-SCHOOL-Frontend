@@ -1,0 +1,126 @@
+@import '../../scss/variables';
+@import '../../scss/rv';
+.footer {
+	background-color: $background_sub;
+	border-top: 1px solid #C4D8BA;
+	padding-top: 30px;
+	font-family: $roboto;
+	&__top {
+		display: flex;
+		justify-content: space-between;
+		@media (max-width: 600px) {
+			flex-direction: column;
+			gap: 50px;
+		}
+	}
+	&__content {
+		display: flex;
+		flex: 1 1 auto;
+		gap: 10px;
+		row-gap: 30px;
+		flex-wrap: wrap;
+	}
+	&__col {
+		flex: 0 0 calc(25% - 5px);
+		@media (max-width: 992px) {
+			flex: 0 0 calc(50% - 5px);
+		}
+		@media (max-width: 425px) {
+			flex: 0 0 calc(100%);
+			text-align: center;
+		}
+	}
+	&__link-container {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+	&__link {
+		color: #444D40;
+		transition: 350ms;
+		@media (hover: hover) {
+			&:hover {
+				color: #111310;
+			}
+		}
+		@media (hover: none) {
+			&:active {
+				color: #111310;
+			}
+		}
+	}
+	&__title {
+		font-weight: 500;
+		font-size: 16px;
+		color: $dark;
+		margin-bottom: 20px;
+	}
+	&__bottom {
+		margin-top: 30px;
+	}
+	&__copyright {
+		line-height: 52px;
+		font-size: 12px;
+		color: $plain_text;
+		border-top: 1px solid #C4D8BA;
+		@media (max-width: 650px) {
+			line-height: 1.5;
+			padding: 20px 0;
+		}
+	}
+	&-contacts {
+		@media (max-width: 425px) {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+		}
+		&__subtitle {
+			color: #444D40;
+			margin-bottom: 10px;
+		}
+		&__phone {
+			color: $dark;
+			font-weight: 800;
+			font-size: 20px;
+			transition: 350ms;
+			@media (hover: hover) {
+				&:hover {
+					color: #383838;
+				}
+			}
+			@media (hover: none) {
+				&:active {
+					color: #383838;
+				}
+			}
+		}
+		&__mobile {
+			margin-bottom: 30px;
+		}
+	}
+	&-socials {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		svg {
+			path {
+				transition: 350ms;
+			}
+			@media (hover: hover) {
+				&:hover {
+					path {
+						fill: $dark;
+					}
+				}
+			}
+			@media (hover: none) {
+				&:active {
+					path {
+						fill: $dark;
+					}
+				}
+			}
+		}
+	}
+}

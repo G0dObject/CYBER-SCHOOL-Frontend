@@ -1,0 +1,9 @@
+@mixin rv($prop, $start, $min, $width1, $width2) {
+	$add: $start - $min;
+	@media (max-width: #{$width1 + px}) {
+		#{$prop}: calc(#{$min + px} + #{$add} * ((100vw - #{$width2 + px}) / (#{$width1} - #{$width2})))
+	}
+	@media (max-width: #{$width2 + px}) {
+		#{$prop}: #{$min+px};
+	}
+}
