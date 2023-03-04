@@ -1,3 +1,4 @@
+
 import { Education } from "../../Enum/EducationEnum";
 
 export interface IVacancy {
