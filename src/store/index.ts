@@ -1,6 +1,6 @@
 import * as mobx from "mobx";
 import { makeAutoObservable } from "mobx";
-import { IUser } from "../Core/Enum/Interface/Auth/IUser";
+import { IUser } from "../Core/Interface/Auth/IUser";
 import AuthService from "../Services/AuthService";
 export default class Store {
 	constructor() {
@@ -11,20 +11,20 @@ export default class Store {
 	user = {};
 	isAuth = false;
 
-	setAuth(bool:boolean) {
+	setAuth(bool: boolean) {
 		this.isAuth = bool;
 	}
-    setUser(user:IUser) {
+	setUser(user: IUser) {
 		this.user = user;
 	}
 
 	load() {
 		if (localStorage.getItem("store") != null) {
-			const data:any = localStorage.getItem("store");
+			const data: any = localStorage.getItem("store");
 			Object.assign(this, JSON.parse(data));
 		}
 	}
-	autoSave(store:any, save:any) {
+	autoSave(store: any, save: any) {
 		let firstRun = true;
 		mobx.autorun(() => {
 			const json = JSON.stringify(mobx.toJS(store));
@@ -35,30 +35,30 @@ export default class Store {
 		});
 	}
 
-	save(json:any) {
+	save(json: any) {
 		localStorage.setItem("store", json);
 	}
 
-	async login(email:string, password:string) {
+	async login(email: string, password: string) {
 		try {
 			const response = await AuthService.login(email, password);
 			localStorage.setItem("token", response.data.token);
 			this.setAuth(true);
 			this.setUser(response.data.username);
 			window.location.href = "/";
-		} catch (e:any) {
+		} catch (e: any) {
 			console.log(e.response?.data?.message);
 		}
 	}
 
-	async registration(username:string, email:string, password:string) {
+	async registration(username: string, email: string, password: string) {
 		try {
 			console.log(username, email, password);
-			
+
 			await AuthService.registration(username, email, password).then(() =>
-				this.login(email,password)
+				this.login(email, password)
 			);
-        } catch (e:any) {
+		} catch (e: any) {
 			console.log(e.response?.data?.message);
 		}
 	}
@@ -67,7 +67,7 @@ export default class Store {
 			localStorage.removeItem("token");
 			this.setAuth(false);
 			this.setUser({});
-		} catch (e:any) {
+		} catch (e: any) {
 			console.log(e.response?.data?.message);
 		}
 	}

@@ -1,9 +1,9 @@
 import { createContext } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import './App.css';
-import { IUser } from './Core/Enum/Interface/Auth/IUser';
-import $api from './http';
+import './scss/null.scss';
+import { IUser } from './Core/Interface/Auth/IUser';
+// import $api from './http';
 
 import Store from './store/index';
 
@@ -17,7 +17,7 @@ let user: IUser = {
 
 store.setUser(user);
 export const Context = createContext(store);
-$api.get('/Login', {}).then((res) => console.log(res));
+// $api.get('/Login', {}).then((res) => console.log(res));
 
 root.render(
 	<Context.Provider value={store}>
