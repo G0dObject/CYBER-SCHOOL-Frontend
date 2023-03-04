@@ -1,5 +1,6 @@
 import * as mobx from "mobx";
 import { makeAutoObservable } from "mobx";
+import { IUser } from "../Core/Enum/Interface/Auth/IUser";
 import AuthService from "../Services/AuthService";
 export default class Store {
 	constructor() {
@@ -13,7 +14,7 @@ export default class Store {
 	setAuth(bool:boolean) {
 		this.isAuth = bool;
 	}
-    setUser(user:User) {
+    setUser(user:IUser) {
 		this.user = user;
 	}
 
