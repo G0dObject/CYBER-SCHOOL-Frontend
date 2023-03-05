@@ -1,7 +1,7 @@
-import { WelcomeScreen } from "../components/WelcomeScreen/WelcomeScreen";
-import { Advantages } from "../components/Advantages/Advantages";
-import { Join } from "../components/Join/Join";
-import { Subscribe } from "../components/Subscribe/Subscribe";
+import { Advantages } from '../components/Advantages/Advantages';
+import { Join } from '../components/Join/Join';
+import { Subscribe } from '../components/Subscribe/Subscribe';
+import { WelcomeScreen } from '../components/WelcomeScreen/WelcomeScreen';
 
 const Home = () => {
 	return (
@@ -12,6 +12,6 @@ const Home = () => {
 			<Subscribe />
 		</div>
 	);
-}
+};
 
 export default Home;
