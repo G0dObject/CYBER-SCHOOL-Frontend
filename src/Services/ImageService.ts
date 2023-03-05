@@ -1,3 +1,4 @@
+import { store } from '..';
 import $api from '../http';
 
 export default class ImageService {
@@ -13,7 +14,8 @@ export default class ImageService {
 		return await $api.post("image", file, {
 			headers: {
 				'Content-Type': 'multipart/form-data',
-				"Access-Control-Allow-Origin": '*'
+				"Access-Control-Allow-Origin": '*',
+				"Authorization": `Bearer ${store.user.Token}`
 			}
 		})
 		
