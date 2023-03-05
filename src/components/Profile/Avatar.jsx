@@ -1,22 +1,34 @@
 import { useEffect, useRef, useState } from 'react';
-import People from '../../images/icons/people.svg';
 import { ReactComponent as Minus } from '../../images/minus.svg';
 import { ReactComponent as Plus } from '../../images/plus.svg';
 import ImageService from '../../Services/ImageService';
 import './Avatar.scss';
 export const Avatar = () => {
-	const [image, setImage] = useState(People);
+	const [image, setImage] = useState();
+	const imgref = useRef(null);
 	const [ImageExist, setImageExist] = useState(false);
 	const input = useRef(null);
 
 	useEffect(() => {
-		checkimage().then(() => {
-			getimage().then((res) => {});
-		});
+		fetchdata();
+		async function fetchdata() {
+			checkimage().then(() => {
+				setImageExist(true);
+				getimage().then((response) => {
+					const base64 = btoa(
+						new Uint8Array(response.data).reduce(
+							(data, byte) => data + String.fromCharCode(byte),
+							'',
+						),
+					);
+					this.setState({ source: 'data:;base64,' + base64 });
+				});
+			});
+		}
 	}, []);
 
 	const checkimage = async () => await ImageService.check();
-	const getimage = () => ImageService.get().then((res) => res.data);
+	const getimage = () => ImageService.get();
 
 	const deleteimg = async () => {
 		await ImageService.delete();
@@ -37,7 +49,7 @@ export const Avatar = () => {
 		<>
 			<div className="avatar">
 				<div className="avatar__inner">
-					<img src={People} className="avatar__inner__image"></img>
+					<img ref={imgref} src={image} className="avatar__inner__image"></img>
 
 					<input
 						ref={input}

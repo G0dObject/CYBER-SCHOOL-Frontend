@@ -9,7 +9,7 @@ export default class Store {
 		this.load();
 		this.autoSave(this, this.save.bind(this));
 	}
-	user = {};
+	user:IUser = {};
 	isAuth = false;
 
 	setAuth(bool: boolean) {
