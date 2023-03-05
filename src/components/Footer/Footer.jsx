@@ -37,7 +37,7 @@ export const Footer = () => {
 		},
 	];
 	return (
-		<div className="footer">
+		<footer className="footer">
 			<Container className="footer">
 				<div className="footer__top">
 					<div className="footer__content">
@@ -91,6 +91,6 @@ export const Footer = () => {
 					</div>
 				</div>
 			</Container>
-		</div>
+		</footer>
 	);
 };

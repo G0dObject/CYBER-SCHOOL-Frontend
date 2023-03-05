@@ -1,0 +1,335 @@
+@import '../../scss/variables';
+@import '../../scss/rv';
+.request {
+	&__buttons {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		margin-top: 10px;
+	}
+	&__button {
+		padding: 8px 15px;
+		border-radius: 8px;
+		text-transform: uppercase;
+		font-weight: 600;
+		transition: 350ms;
+		&-back {
+			border: 1px solid $border;
+			background-color: $background_semi;
+			@media (hover: hover) {
+				&:hover {
+					background-color: $border;
+				}
+			}
+			@media (hover: none) {
+				&:active {
+					background-color: $border;
+				}
+			}
+		}
+		&-next {
+			border: 1px solid transparent;
+			background-color: $primary;
+			color: $background;
+			@media (hover: hover) {
+				&:hover {
+					background-color: $primary_darker;
+				}
+			}
+			@media (hover: none) {
+				&:active {
+					background-color: $primary_darker;
+				}
+			}
+		}
+	}
+	&-page {
+		padding: 40px 0;
+	}
+	&__title {
+		font-weight: 800;
+		font-size: 36px;
+		color: $dark;
+		margin-bottom: 30px;
+		@include rv('font-size', 36, 24, 1180, 320);
+		@include rv('margin-bottom', 30, 20, 1180, 320);
+	}
+	&-tabs {
+		background-color: $background_semi;
+		border: 1px solid $border;
+		border-radius: 12px;
+		display: flex;
+		padding: 5px;
+		gap: 2px;
+		margin-bottom: 15px;
+		@media (max-width: 600px) {
+			flex-direction: column;
+			width: 100%;
+		}
+	}
+	&__form-container {
+		display: none;
+		&.active {
+			display: block;
+		}
+	}
+	&-tab {
+		cursor: pointer;
+		background-color: $background_sub;
+		color: $dark;
+		border: 1px solid #C4D8BA;
+		border-radius: 5px;
+		padding: 8px 12px;
+		font-weight: 500;
+		font-family: $roboto;
+		transition: 350ms;
+		@media (max-width: 600px) {
+			border-radius: 8px;
+			text-align: center;
+			&:first-of-type,
+			&:last-of-type {
+				border-right: 8px;
+			}
+		}
+		&:first-of-type {
+			border-radius: 8px 5px 5px 8px;
+		}
+		&:last-of-type {
+			border-radius: 5px 8px 8px 5px;
+		}
+		@media (hover: hover) {
+			&:hover {
+				background-color: #d5e9d8;
+			}
+		}
+		@media (hover: none) {
+			&:active {
+				background-color: #d5e9d8;
+			}
+		}
+		&.active {
+			background-color: #d5e9d8;
+		}
+	}
+	&__content {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	&__tab-content {
+		width: 100%;
+	}
+	&-form {
+		position: relative;
+		overflow: hidden;
+		padding: 25px 30px;
+		border: 2px solid #AFE8BF;
+		background-color: #E8F8EB;
+		border-radius: 20px;
+		@include rv('padding-top', 25, 15, 1180, 320);
+		@include rv('padding-bottom', 25, 15, 1180, 320);
+		@include rv('padding-left', 30, 15, 1180, 320);
+		@include rv('padding-right', 30, 15, 1180, 320);
+		@include rv('border-radius', 20, 15, 1180, 320);
+		&__illustration {
+			@media (max-width: 992px) {
+				display: none;
+			}
+		}
+		&__title {
+			color: $primary;
+			font-weight: 700;
+			font-size: 22px;
+			margin-bottom: 25px;
+			@include rv('font-size', 22, 17, 1180, 320);
+		}
+		&__col {
+			display: flex;
+			flex-direction: column;
+			gap: 15px;
+			max-width: 350px;
+			width: 100%;
+			@include rv('gap', 15, 10, 1180, 320);
+			@media (max-width: 600px) {
+				max-width: 100%;
+			}
+		}
+		&__body {
+			display: flex;
+			gap: 60px;
+			@include rv('gap', 60, 20, 1180, 700);
+			@media (max-width: 600px) {
+				flex-direction: column;
+			}
+		}
+		&__item {
+			width: inherit;
+		}
+		&__label {
+			color: $dark;
+			font-size: 16px;
+			font-weight: 600;
+			margin-bottom: 5px;
+			@include rv('font-size', 16, 12, 1180, 320);
+			&.required {
+				&::after {
+					content: ' *';
+					color: #ff0000;
+				}
+			}
+		}
+		&__input,
+		&__select {
+			border: 1px solid $dark;
+			border-radius: 10px;
+			height: 40px;
+			width: inherit;
+			padding: 0 15px;
+			font-weight: 500;
+			font-family: inherit;
+			@include rv('padding-left', 15, 10, 1180, 320);
+			@include rv('padding-right', 15, 10, 1180, 320);
+		}
+		&__select {
+			position: relative;
+		}
+	}
+}
+// радио-кнопки
+.request-form {
+	&__body {
+		position: relative;
+		z-index: 2;
+	}
+	&__radio {
+		&-container {
+			display: flex;
+			gap: 25px;
+			margin-top: 15px;
+		}
+		&-item {
+			display: flex;
+			align-items: center;
+			gap: 7px;
+			cursor: pointer;
+			input {
+				display: none;
+				&:checked {
+					&+.request-form__radio-label {
+						&::before {
+							transform: translate(-50%, -50%) scale(1);
+						}
+					}
+				}
+			}
+		}
+		&-label {
+			flex: 0 0 18px;
+			height: 18px;
+			border-radius: 50%;
+			background: $background;
+			border: 1px solid $plain_text;
+			position: relative;
+			&::before {
+				content: '';
+				width: 12px;
+				height: 12px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%) scale(0);
+				background-color: $primary;
+				border-radius: 50%;
+				transition: 350ms;
+			}
+		}
+		&-text {}
+	}
+}
+// форма 1
+.form1 {
+	.request-form {
+		&__illustration {
+			position: absolute;
+			right: 90px;
+			bottom: 20px;
+			@include rv('right', 90, -10, 1180, 992);
+		}
+	}
+}
+// форма 2
+.form2 {
+	.request-form {
+		&__illustration {
+			position: absolute;
+			left: 9px;
+			bottom: -9px;
+		}
+		&__body {
+			padding-left: 30%;
+			@media (max-width: 992px) {
+				padding: 0;
+			}
+		}
+	}
+}
+// форма 3
+.form3 {
+	&.internship,
+	&.work {
+		.request-form {
+			&__col {
+				max-width: 350px;
+				&_text-content {
+					max-width: 100%;
+				}
+			}
+		}
+	}
+	.request-form {
+		&__body {
+			gap: 30px;
+			@media (max-width: 992px) {
+				flex-direction: column;
+			}
+		}
+		&__col {
+			&_text-content {
+				max-width: 700px;
+				background-color: #EFF5C6;
+				border: 1px solid $dark;
+				border-radius: 20px;
+				padding: 15px;
+				@include rv('border-radius', 20, 8, 1180, 320);
+				@include rv('padding', 15, 8, 1180, 320);
+			}
+			max-width: 100%;
+		}
+		&__select {
+			width: 350px;
+			@media (max-width: 600px) {
+				width: 100%;
+			}
+		}
+		&__radio-container {
+			display: flex;
+			gap: 10px;
+			flex-direction: column;
+		}
+		&__text-content {
+			line-height: calc(20/14);
+			color: #423D14;
+			font-family: $roboto;
+			@include rv('font-size', 14, 11, 1180, 320);
+			span {
+				font-weight: 600;
+			}
+			p {
+				margin-bottom: 10px;
+				&:last-of-type {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+}

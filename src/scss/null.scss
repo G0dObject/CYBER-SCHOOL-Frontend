@@ -4,6 +4,7 @@
 	margin: 0;
 	border: 0;
 	box-sizing: border-box;
+	outline: 0;
 	-webkit-tap-highlight-color: transparent;
 }
 html, body {
@@ -31,4 +32,16 @@ img {
 h1, h2, h3, h4, h5, h6 {
 	font-size: inherit;
 	font-weight: 700;
+}
+#root {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+.page {
+	flex: 1 1 auto;
+	display: flex;
+	&>div {
+		width: 100%;
+	}
 }
