@@ -1,5 +1,5 @@
 
-import { Education } from "../../Enum/EducationEnum";
+import { Education } from "../Enum/EducationEnum";
 
 export interface IVacancy {
     id: number,

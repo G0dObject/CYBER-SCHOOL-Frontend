@@ -13,6 +13,7 @@ export default class ImageService {
 		return await $api.post("image", file, {
 			headers: {
 				'Content-Type': 'multipart/form-data',
+				"Access-Control-Allow-Origin": '*'
 			}
 		})
 		
