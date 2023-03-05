@@ -1,6 +1,7 @@
 import * as mobx from "mobx";
 import { makeAutoObservable } from "mobx";
 import { IUser } from "../Core/Interface/Auth/IUser";
+import { ICreateUser } from "../Core/Interface/ICreateUser";
 import AuthService from "../Services/AuthService";
 export default class Store {
 	constructor() {
@@ -51,13 +52,12 @@ export default class Store {
 		}
 	}
 
-	async registration(username: string, email: string, password: string) {
+	async registration(props: ICreateUser) {
 		try {
-			console.log(username, email, password);
+			console.log(props);
 
-			await AuthService.registration(username, email, password).then(() =>
-				this.login(email, password)
-			);
+			await AuthService.registration(props)
+			
 		} catch (e: any) {
 			console.log(e.response?.data?.message);
 		}
