@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { ReactComponent as Illustration2 } from '../../images/formillustration.svg';
 import { ReactComponent as Illustration1 } from '../../images/menorwomanform.svg';
 import { Container } from '../../layout/Container/Container';
+import AuthService from '../../Services/AuthService';
 import './RequestComponent.scss';
 let firstnameref;
 let lastnameref;
@@ -11,9 +12,8 @@ let cityref;
 let directionref;
 let adressref;
 let educationref;
-let mariedref;
-let havechildref;
 let disiredregionref;
+let emailref;
 
 const RequestComponent = () => {
 	firstnameref = useRef('');
@@ -24,12 +24,25 @@ const RequestComponent = () => {
 	directionref = useRef('');
 	adressref = useRef('');
 	educationref = useRef('');
-	mariedref = useRef(false);
-	havechildref = useRef(false);
 	disiredregionref = useRef('');
+	emailref = useRef('');
 
 	const register = () => {
-		console.log(dayofbirthref.current);
+		console.log(firstnameref.current.value);
+		console.log(lastnameref.current.value);
+		console.log(surnameref.current.value);
+		console.log(dayofbirthref.current.value);
+		console.log(cityref.current.value);
+		console.log(directionref.current.value);
+
+		console.log(adressref.current.value);
+		console.log(educationref.current.value);
+
+		console.log(disiredregionref.current.value);
+
+		let user = {};
+
+		AuthService.registration();
 	};
 
 	const [activeTab, setActiveTab] = useState(0);
@@ -147,7 +160,7 @@ const Form1 = () => {
 				<div className="request-form__item">
 					<div className="request-form__label required">Дети</div>
 					<div className="request-form__radio-container">
-						<label ref={havechildref} className="request-form__radio-item">
+						<label className="request-form__radio-item">
 							<input type="radio" name="haveKids" defaultChecked={true} />
 							<div className="request-form__radio-label"></div>
 							<div className="request-form__radio-text">нет</div>
@@ -201,7 +214,7 @@ const Form2 = () => {
 				</div>
 				<div className="request-form__item">
 					<div className="request-form__label required">Электронная почта</div>
-					<input type="email" className="request-form__input" />
+					<input ref={emailref} type="email" className="request-form__input" />
 				</div>
 			</div>
 		</Form>
@@ -261,8 +274,9 @@ const Form3 = () => {
 					</div>
 					<select
 						onChange={(event) => setPurpose(event.target.value)}
-						className="request-form__select">
-						<option value="bd">Разработчик баз данных</option>
+						className="request-form__select"
+						ref={directionref}>
+						<option value="db">Разработчик баз данных</option>
 						<option value="java">Разработчик Java/Kotlin</option>
 						<option value="mobile">Разработчик под мобильные платформы</option>
 						<option value="systemAnalytics">Системный аналитик</option>
