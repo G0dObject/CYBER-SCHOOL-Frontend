@@ -11,10 +11,7 @@ export const Avatar = () => {
 
 	useEffect(() => {
 		checkimage().then(() => {
-			getimage().then((res) => {
-				let image = (new Image().src = 'data:image/jpeg;base64,' + res.data);
-				setImage(image);
-			});
+			getimage().then((res) => {});
 		});
 	}, []);
 
@@ -40,7 +37,7 @@ export const Avatar = () => {
 		<>
 			<div className="avatar">
 				<div className="avatar__inner">
-					<img src={getimage()} className="avatar__inner__image"></img>
+					<img src={People} className="avatar__inner__image"></img>
 
 					<input
 						ref={input}
