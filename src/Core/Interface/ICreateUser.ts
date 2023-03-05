@@ -7,7 +7,7 @@ export interface ICreateUser{
     FirstName: string,
     LastName: string,
     SurName: string,
-    DayOfBird: string,
+    DayOfBirth: string,
     City: string,
     Direction: Directions,
     Adress: string,

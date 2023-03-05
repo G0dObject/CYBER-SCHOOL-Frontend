@@ -1,7 +1,7 @@
 import { IVacancy } from '../Core/Interface/IVacancy';
 import $api from '../http';
 
-export default class Service {
+export default class VacancyService {
 	static async get() {
 		return await $api.get<IVacancy[]>('vacancy');
 	}

@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
+import People from '../../images/icons/people.svg';
 import { ReactComponent as Minus } from '../../images/minus.svg';
 import { ReactComponent as Plus } from '../../images/plus.svg';
 import ImageService from '../../Services/ImageService';
 import './Avatar.scss';
 export const Avatar = () => {
-	const [image, setImage] = useState();
+	const [image, setImage] = useState(People);
 	const imgref = useRef(null);
 	const [ImageExist, setImageExist] = useState(false);
 	const input = useRef(null);
@@ -21,7 +22,6 @@ export const Avatar = () => {
 							'',
 						),
 					);
-					this.setState({ source: 'data:;base64,' + base64 });
 				});
 			});
 		}
