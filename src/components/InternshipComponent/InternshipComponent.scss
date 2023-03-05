@@ -1,0 +1,120 @@
+@import '../../scss/variables';
+@import '../../scss/rv';
+.internship {
+	&__header {
+		padding-top: 30px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 50px;
+		@media (max-width: 768px) {
+			margin-bottom: 20px;
+		}
+	}
+	&__title {
+		font-size: 36px;
+		font-weight: 800;
+		@include rv('font-size', 36, 16, 1180, 320);
+	}
+	&__content {
+		display: flex;
+		padding-bottom: 55px;
+		@media (max-width: 876px) {
+			flex-direction: column;
+		}
+	}
+	&__sidebar {
+		flex: 0 0 400px;
+		@include rv('flex-basis', 400, 200, 1180, 320);
+		@media (max-width: 876px) {
+			flex: 0 1 auto;
+			margin-bottom: 30px;
+		}
+	}
+	&__main {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+	&-block {
+		background-color: $background_sub;
+		padding: 20px;
+		border: 2px solid #AFE8BF;
+		border-radius: 5px;
+		@media (max-width: 876px) {
+			padding: 10px;
+		}
+		&_direction {
+			padding-bottom: 25px;
+			@media (max-width: 876px) {
+				padding-bottom: 15px;
+			}
+		}
+		&__description {
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+			color: $dark;
+			font-family: $roboto;
+			font-size: 16px;
+			line-height: 1.5;
+			@include rv('font-size', 16, 13, 1180, 320);
+		}
+		&__content {
+			display: flex;
+			justify-content: space-between;
+			@media (max-width: 876px) {
+				flex-direction: column;
+				gap: 10px;
+			}
+		}
+		&__title {
+			font-size: 26px;
+			font-weight: 700;
+			color: $dark;
+			margin-bottom: 20px;
+			@include rv('font-size', 26, 16, 1180, 320);
+		}
+		&__text {
+			font-family: $roboto;
+			color: $plain_text;
+			line-height: 1.5;
+		}
+	}
+	&-nav {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+		@media (max-width: 876px) {
+			gap: 5px;
+		}
+		&__item {
+			width: 100%;
+		}
+		&__link {
+			color: $dark;
+			font-size: 16px;
+			font-weight: 700;
+			transition: 350ms;
+			@include rv('font-size', 16, 13, 1180, 320);
+			@media (max-width: 876px) {
+				background-color: $background_semi;
+				padding: 8px;
+				border: 1px solid $border;
+				border-radius: 4px;
+				width: inherit;
+				display: inline-block;
+			}
+			@media (hover: hover) {
+				&:hover {
+					color: $plain_text;
+				}
+			}
+			@media (hover: none) {
+				&:active {
+					color: $plain_text;
+				}
+			}
+		}
+	}
+}

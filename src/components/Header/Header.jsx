@@ -51,19 +51,19 @@ const Navbar = () => {
 		{ path: '#', text: 'Бизнесу' },
 		{ path: '#', text: 'О банке' },
 		{ path: '#', text: 'Контакты' },
-		{ path: '#', text: 'Карьера' },
+		{ path: '/internship', text: 'Стажировка' },
 	];
 	return (
 		<nav className="navigation">
 			<ul className="navigation__list">
 				{links.map((link, index) => (
 					<li key={index} className="navigation__item">
-						<a
-							href={link.path}
-							onClick={(event) => event.preventDefault()}
+						<Link
+							to={link.path}
+							onClick={link.path === '#' ? (event) => event.preventDefault() : null}
 							className="navigation__link">
 							{link.text}
-						</a>
+						</Link>
 					</li>
 				))}
 			</ul>
