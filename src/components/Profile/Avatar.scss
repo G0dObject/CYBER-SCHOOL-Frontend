@@ -1,0 +1,33 @@
+@import '../../scss/variables';
+@import '../../scss/rv';
+
+.avatar {
+	position: relative;
+	border: 0;
+	overflow: hidden;
+	border-radius: 50%;
+
+	width: 200px;
+	height: 200px;
+	background: #afe8bf;
+	display: flex;
+	&__inner {
+		&__image {
+			left: 18%;
+			bottom: -2%;
+			position: absolute;
+		}
+		&__action {
+			position: absolute;
+			right: 20%;
+			bottom: 5%;
+			background: none;
+			&__form {
+				position: absolute;
+				right: 20%;
+				bottom: 5%;
+				visibility: hidden;
+			}
+		}
+	}
+}
