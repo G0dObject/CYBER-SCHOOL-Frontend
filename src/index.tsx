@@ -36,7 +36,7 @@ let user: IUser = {
 store.setUser(user);
 
 //store.registration(user);
-VacancyService.get().then((res) => console.log(res));
+// VacancyService.get().then((res) => console.log(res));
 root.render(
 	<Context.Provider value={store}>
 		<App />

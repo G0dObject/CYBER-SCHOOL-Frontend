@@ -5,6 +5,7 @@ import { Header } from './components/Header/Header';
 import { Avatar } from './components/Profile/Avatar';
 import Home from './pages/Home';
 import RequestPage from './pages/RequestPage';
+import Internship from './pages/Internship';
 
 const App = () => {
 	const [isMain, setIsMain] = useState(true);
@@ -22,6 +23,7 @@ const App = () => {
 						}></Route>
 					<Route path="/" element={<Home />} />
 					<Route path="/request" element={<RequestPage />} />
+					<Route path="/internship" element={<Internship />} />
 				</Routes>
 			</main>
 			<Footer />
